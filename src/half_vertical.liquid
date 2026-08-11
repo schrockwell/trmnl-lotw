@@ -59,8 +59,8 @@
   <div class="item">
     <div class="meta"></div>
     <div class="content">
-      <span class="title title--small">no confirmations yet</span>
-      <span class="description">nothing in the last {{ window_days }} days</span>
+      <span class="title title--small">no QSLs yet</span>
+      <span class="description">nothing to show ({{ period_label }})</span>
     </div>
   </div>
   {% endif %}
@@ -70,5 +70,5 @@
 <div class="title_bar">
   <img class="image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><rect x='7' y='3' width='14' height='18' rx='2'/><path d='M11 8h6M11 12h6M11 16h6'/><path d='M4 6h5M4 10h5M4 14h5M4 18h5'/></svg>">
   <span class="title">{{ account_call }} LOTW</span>
-  <span class="instance">QSLs last {{ window_days }} days</span>
+  <span class="instance">QSLs {{ period_label }}</span>
 </div>
