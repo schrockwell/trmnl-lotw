@@ -1,0 +1,74 @@
+<div class="layout layout--col gap--space-between">
+  {% if error != blank %}
+  <div class="item">
+    <div class="meta"></div>
+    <div class="content">
+      <span class="title title--small">couldn't reach LOTW</span>
+      <span class="description">{{ error }}</span>
+    </div>
+  </div>
+  {% else %}
+  <div class="grid grid--cols-3">
+    <div class="item">
+      <div class="meta"></div>
+      <div class="content">
+        <span class="value value--small value--tnums" data-value-type="number">{{ stats.confirmations | default: 0 }}</span>
+        <span class="label label--small">QSLs</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="meta"></div>
+      <div class="content">
+        <span class="value value--small value--tnums" data-value-type="number">{{ stats.entities | default: 0 }}</span>
+        <span class="label label--small">Entities</span>
+      </div>
+    </div>
+    <div class="item">
+      <div class="meta"></div>
+      <div class="content">
+        <span class="value value--small value--tnums" data-value-type="number">{{ stats.band_slots | default: 0 }}</span>
+        <span class="label label--small">Band-Slots</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="border--h-5 w--full mt--3 mb--3"></div>
+
+  {% if qsos.size > 0 %}
+  <table class="table table--small" data-table-limit="true">
+    <thead>
+      <tr>
+        <th><span class="label label--small">Call</span></th>
+        <th><span class="label label--small">Band</span></th>
+        <th><span class="label label--small">Mode</span></th>
+        <th><span class="label label--small">Date</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in qsos limit: 10 %}
+      <tr>
+        <td><span class="title title--small">{{ q.call }}</span></td>
+        <td><span class="label">{{ q.band }}</span></td>
+        <td><span class="label">{{ q.mode }}</span></td>
+        <td><span class="label">{{ q.qsl_date_fmt }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="item">
+    <div class="meta"></div>
+    <div class="content">
+      <span class="title title--small">no confirmations yet</span>
+      <span class="description">nothing in the last {{ window_days }} days</span>
+    </div>
+  </div>
+  {% endif %}
+  {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'><rect x='7' y='3' width='14' height='18' rx='2'/><path d='M11 8h6M11 12h6M11 16h6'/><path d='M4 6h5M4 10h5M4 14h5M4 18h5'/></svg>">
+  <span class="title">{{ account_call }} LOTW</span>
+  <span class="instance">QSLs last {{ window_days }} days</span>
+</div>
