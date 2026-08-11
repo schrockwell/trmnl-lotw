@@ -67,6 +67,6 @@ custom_fields:
   help_text: needed when your LoTW account has multiple DXCC award accounts (1, 2, ...)
   optional: true
   placeholder: '1'
-name: Ham Radio - LOTW
+name: Ham Radio - Logbook Of The World (LOTW)
 description: ''
 refresh_interval: 60
