@@ -1,0 +1,64 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+framework_version: 3.2.0
+serverless_language: node
+polling_url: 'https://lotw.arrl.org/lotwuser/lotwreport.adi?login={{ lotw_username | url_encode }}&password={{ lotw_password | url_encode }}&qso_query=1&qso_qsl=yes&qso_qsldetail=yes&qso_qslsince={{ ''now'' | date: ''%s'' | minus: 7776000 | date: ''%Y-%m-%d'' }}'
+polling_headers: ''
+polling_body: ''
+id: 412643
+oauth_enabled: 'false'
+oauth_pkce_enabled: 'no'
+oauth_authorize_url: ''
+oauth_token_url: ''
+oauth_scopes: ''
+oauth_scope_separator: ''
+oauth_refresh_url: ''
+oauth_auth_params: ''
+oauth_token_headers: ''
+oauth_token_site: ''
+oauth_token_params: ''
+oauth_token_request_auth_method: ''
+oauth_body_format: ''
+oauth_token_response_metadata: ''
+oauth_authorization_method: ''
+oauth_refresh_params: ''
+oauth_token_field_name: ''
+oauth_expiry_field_name: ''
+oauth_expiry_strategy: ''
+oauth_fixed_expiry_ms: ''
+custom_fields:
+- keyname: lotw_username
+  field_type: string
+  name: LoTW Username
+  description: your Logbook of The World username
+  placeholder: W1AW
+- keyname: lotw_password
+  field_type: password
+  name: LoTW Password
+  description: your Logbook of The World password
+- keyname: own_call
+  field_type: string
+  name: Your Callsign
+  description: only count QSLs logged under this callsign
+  help_text: leave blank to include every callsign on your LoTW account
+  optional: true
+  placeholder: W1AW
+- keyname: lookback_days
+  field_type: select
+  name: Lookback Period
+  description: how far back to count confirmations
+  help_text: in days
+  default: '90'
+  options:
+  - '30'
+  - '60'
+  - '90'
+  - '180'
+  - '365'
+name: Ham Radio - LOTW
+description: ''
+refresh_interval: 60
