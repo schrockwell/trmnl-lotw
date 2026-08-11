@@ -11,7 +11,7 @@
     <div class="meta"></div>
     <div class="content">
       <span class="value value--xlarge value--tnums" data-value-type="number">{{ stats.confirmations | default: 0 }}</span>
-      <span class="label">QSLs · {{ window_days }} days</span>
+      <span class="label">QSLs · {{ period_label }}</span>
     </div>
   </div>
   <span class="label label--small">{{ stats.entities | default: 0 }} entities · {{ stats.band_slots | default: 0 }} band-slots{% if last_qsl_date != blank %} · last {{ last_qsl_date }}{% endif %}</span>
