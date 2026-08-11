@@ -59,6 +59,13 @@ custom_fields:
   - '90'
   - '180'
   - '365'
+- keyname: doesnt_matter
+  name: About This Plugin
+  category: personal
+  field_type: author_bio
+  description: LOTW confirmation status
+  github_url: https://github.com/schrockwell/trmnl-lotw
+  learn_more_url: https://www.bible.com/
 name: Ham Radio - LOTW
 description: ''
 refresh_interval: 60
