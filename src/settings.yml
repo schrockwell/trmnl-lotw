@@ -51,7 +51,7 @@ custom_fields:
   field_type: select
   name: Lookback Period
   description: how far back to count confirmations
-  help_text: in days
+  help_text: in days, or 'awarded' to show granted DXCC award credits instead
   default: '90'
   options:
   - '30'
@@ -59,13 +59,14 @@ custom_fields:
   - '90'
   - '180'
   - '365'
-- keyname: doesnt_matter
-  name: About This Plugin
-  category: personal
-  field_type: author_bio
-  description: LOTW confirmation status
-  github_url: https://github.com/schrockwell/trmnl-lotw
-  learn_more_url: https://www.bible.com/
+  - awarded
+- keyname: dxcc_account
+  field_type: string
+  name: DXCC Award Account '#'
+  description: only used with the 'awarded' period
+  help_text: needed when your LoTW account has multiple DXCC award accounts (1, 2, ...)
+  optional: true
+  placeholder: '1'
 name: Ham Radio - LOTW
 description: ''
 refresh_interval: 60
